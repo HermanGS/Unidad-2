@@ -1,6 +1,6 @@
 from ViajeroFrecuente import viajerofrecuente
 from ManejadorViajero import manejadorviajero
-
+from Menu import Menu
 
 # Listas
 #
@@ -40,45 +40,24 @@ if __name__ == "__main__":
     mv.testViajeros()
     print("lista de Viajeros Cargados : \n")
     print(mv)
+    print(mv.retornaViajeroDeLista(0))
 
-    a =  viajerofrecuente(18,44808998,"Herman","Soria",11500)
-    print("Elija una de estas opciones [elija ""0(cero)"" para terminar]\n ")
-    op = str(input("a- Consultar Cantidad de Millas.\nb- Acumular Millas.\nc- Canjear Millas.\n--------------------------------- \n opcion elegida :  "))
+    # a =  viajerofrecuente(18,44808998,"Herman","Soria",11500)
+    NumViajero = int(input("Ingrese el numero del viajero para realizar las operaciones: "))
+    indice = mv.BuscarViajero(NumViajero)
+    if (indice != None):
+        menuviajero = Menu()
+        op = '-1'
+        while(op != '4'):
+            print("Elija una de estas opciones [elija ""4(cuatro)"" para terminar] ")
+            op = str(input("1 -Consultar Cantidad de Millas.\n2 -Acumular Millas.\n3 -Canjear Millas.\n--------------------------------- \n opcion elegida :  "))
+            while(op!='1' and op!='2' and op!='3' and op!='4'):
+                print("Error - Vuelva a elegir opcion" "\n")
+                op = str(input("1 -Consultar Cantidad de Millas.\n2 -Acumular Millas.\n3 -Canjear Millas.\n--------------------------------- \n opcion elegida :  "))
+            menuviajero.opcion(str(op),mv.retornaViajeroDeLista(indice))
 
-    if (type(op)==str):
-        a=-1
-    while(a==-1):
-        while (op !="a" and op!="b" and op!="c"):
-            print("----------------------------------")
-            print("ERROR - caracter no valido")
-            print("Elija una de estas opciones [elija ""0(cero)"" para terminar] ")
-            print("a- Consultar Cantidad de Millas.\nb- Acumular Millas.\nc- Canjear Millas.\n---------------------------------\n")
-            op = input(" Vuelva a elegir: ")
-
-            if (op =="a"):
-                print("Cantidad Total de millas : {}".format(a.cantidadTotaldeMillas()))
-            if (op =="b"):
-                print("Cantidad de millas Actuales despues de la Suma : {}".format(a.acumularMillas(int(input("Ingrese la cantidad de millas que ha recorrido para acumular : ")))))
-            if (op =="c"):
-                print("Cantidad de millas actuales despues del Canje : {} ".format(a.canjearMillas(int(input(" Ingrese la cantidad de millas que quiere Canjear : ")))))
-
-
-
-
-
-
-
-
-
-
-
-'''
-    opciones = {
-        "a": a.cantidadTotaldeMillas()
-        "b": a.acumularMillas(int(input("Ingrese la cantidad de millas nuevas: ")))
-        "c": a.canjearMilas()
-    }
-'''
+    else:
+        print("No se encontro el viajero con numero {}".format(NumViajero))
 
 
 print("Hola mundo")

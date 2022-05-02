@@ -12,14 +12,22 @@ class manejadorviajero:
             s = s+ str(viajero) + "\n"
         return (s)
 
+    def retornaLista(self):
+        return (self.__ListaViajeros)
+
+    def retornaViajeroDeLista(self,num):
+        return (self.__ListaViajeros[num])
+
     def AgregarViajeroaL(self,viajero):
         if (type(viajero)==viajerofrecuente):
             self.__ListaViajeros.append(viajero)
 
     def BuscarViajero(self,numero):
+        viajero = None
         for i, viajerofrecuente in enumerate(self.__ListaViajeros):
             if(viajerofrecuente.retornaNUM()==numero):
-                return (i)
+                viajero=i
+                return (viajero)
             else:
                 print("No se encontro ningun viajero con ese numero")
 
