@@ -1,5 +1,5 @@
 
-class viajerofrecuente:
+class Viajerofrecuente:
 
     def __init__(self,num_v,dni,nombre,apellido,millas_acum=0):
         self.__num_v = num_v
@@ -15,12 +15,12 @@ class viajerofrecuente:
         return(self.__millas_acum)
 
     def acumularMillas(self,cant_millas):
-        self.__millas_acum =+ cant_millas
+        self.__millas_acum = self.__millas_acum + cant_millas
         return(self.__millas_acum)
 
     def canjearMillas(self,cant_millasCanje):
         if cant_millasCanje <= self.__millas_acum:
-            self.__millas_acum -= cant_millasCanje
+            self.__millas_acum = self.__millas_acum - cant_millasCanje
             # print("cantidad de millas actuales:",self.__millas_acum," \n")
             return (self.__millas_acum)
         else:

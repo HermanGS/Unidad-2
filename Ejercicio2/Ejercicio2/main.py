@@ -1,4 +1,4 @@
-from ViajeroFrecuente import viajerofrecuente
+from ViajeroFrecuente import Viajerofrecuente
 from ManejadorViajero import manejadorviajero
 from Menu import Menu
 
@@ -31,10 +31,6 @@ from Menu import Menu
 #
 # 3- Represente el almacenamiento en memoria para la lista cargada con 4 viajeros.
 
-
-
-#
-
 if __name__ == "__main__":
     mv = manejadorviajero()
     mv.testViajeros()
@@ -44,21 +40,25 @@ if __name__ == "__main__":
 
     # a =  viajerofrecuente(18,44808998,"Herman","Soria",11500)
     NumViajero = int(input("Ingrese el numero del viajero para realizar las operaciones: "))
+    print("\n")
     indice = mv.BuscarViajero(NumViajero)
     if (indice != None):
         menuviajero = Menu()
-        op = '-1'
-        while(op != '4'):
+
+        op = -1
+        while(op != 4):
             print("Elija una de estas opciones [elija ""4(cuatro)"" para terminar] ")
-            op = str(input("1 -Consultar Cantidad de Millas.\n2 -Acumular Millas.\n3 -Canjear Millas.\n--------------------------------- \n opcion elegida :  "))
-            while(op!='1' and op!='2' and op!='3' and op!='4'):
+            op = int(input("1 -Consultar Cantidad de Millas.\n2 -Acumular Millas.\n3 -Canjear Millas.\n--------------------------------- \n opcion elegida :  "))
+             # print( " la opcion elegida es {}".format(op))
+            while(op!= 1 and op!= 2 and op!= 3 and op!= 4 ):
                 print("Error - Vuelva a elegir opcion" "\n")
-                op = str(input("1 -Consultar Cantidad de Millas.\n2 -Acumular Millas.\n3 -Canjear Millas.\n--------------------------------- \n opcion elegida :  "))
-            menuviajero.opcion(str(op),mv.retornaViajeroDeLista(indice))
+                op = int(input("1 -Consultar Cantidad de Millas.\n2 -Acumular Millas.\n3 -Canjear Millas.\n--------------------------------- \n opcion elegida :  "))
+            print("resumen Actual: {} \n ".format(mv.retornaViajeroDeLista(indice)))
+            menuviajero.opcion(op,mv.retornaViajeroDeLista(indice))
 
     else:
         print("No se encontro el viajero con numero {}".format(NumViajero))
 
 
-print("Hola mundo")
+
 
