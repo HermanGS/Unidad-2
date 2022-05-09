@@ -1,0 +1,2 @@
+class Ventana:
+    pass
