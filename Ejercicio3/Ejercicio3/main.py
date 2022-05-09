@@ -20,47 +20,36 @@
 # 3.3.        Dado un número de día listar los valores de las tres variables para cada hora del día dado. El listado debe tener el siguiente formato.
 
 from Registro import Registro
-import ManejadorLista
-import Menu
+from ManejadorLista import ManejadorLista
+from Menu import Menu
 
 if __name__ == "__main__":
-    print("hola mundo")
+    MM = ManejadorLista()
 
-# aux = Registro.Registro()
-# a1=1
-# a2=2
-# a3=3
-#
-# print("uno dos tres")
-# print("{:2} {:3} {:3}".format(a1,a2,a3))
-#
-# print("Hora Temperatura  Humedad Presion")
-# print(aux)
+    dia = int(input("Ingrese un ""día"" para modificar temp hum y pre : "))
+    print(dia)
+    hora = int(input("Ingrese un ""hora"" para modificar temp hum y pre : "))
+    print(hora)
+    print("--------------------------------------------")
+    print("Ingreso de datos del Registro Temporal")
+    temp = float(input("ingrese temperatura : "))
+    hum = int(input("ingrese humedad : "))
+    pre = float(input("ingrese presion : "))
+    Registrotemp = Registro(temp, hum, pre)
 
-for i in range(3):
-    print("{}".format(i))
+    print("Registro cargado: ")
+    print(Registrotemp)
 
-MM = ManejadorLista.ManejadorLista()
-dia = int(input("Ingrese un ""día"" para modificar temp hum y pre : "))
-print(dia)
-hora = int(input("Ingrese un ""hora"" para modificar temp hum y pre : "))
-print(hora)
-print("--------------------------------------------")
-print("Ingreso de datos del Registro Temporal")
-temp = float(input("ingrese temperatura : "))
-hum = int(input("ingrese humedad : "))
-pre = float(input("ingrese presion : "))
-Registrotemp = Registro(temp, hum, pre)
+    MM.AgregarAlaMatriz(dia, hora, Registrotemp)
+    # MM.PruebaCarga()
+    # MM.CambiarTodoaEntero()
+    print("--------------------------------")
+    print("Matriz por día : {}".format(dia))
+    MM.MostrarPorDia(dia)
+    # MM.mostrarTODOxd()
 
-Registrotemp2 = Registro(temp,hum,pre)
-
-print(Registrotemp)
-print(Registrotemp2)
-
-MM.AgregarAlaMatriz(dia, hora, Registrotemp)
-
-# MM.CambiarTodoaEntero()
-MM.MostrarPorDia(dia)
-# MM.mostrarTODOxd()
-
+    print("1  2 o 3 ")
+    op = input("Elija una Opcion : ")
+    menuOP = Menu()
+    menuOP.elegirop(op)
 

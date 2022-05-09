@@ -16,7 +16,7 @@ class ManejadorLista:
                 lista.append(objetoRegistro)
             self.__ListaBidimensional.append(lista)
 
-    def PruebaCarga(self): # La carga si funciona , el print de la lista muestra todos ceros a pesar de que si esta cargada
+    def PruebaCarga(self): # test
         print("elemento 0 0 por defecto : ")
         print(self.__ListaBidimensional[0][0])
         print( "elemento 0 cambiado a 1")
@@ -39,26 +39,60 @@ class ManejadorLista:
 
     def CambiarTodoaEntero(self):
         for i in range(len(self.__ListaBidimensional)):
-            for j in range(len(self.__ListaBidimensional)):
+            for j, Registro in enumerate(self.__ListaBidimensional[i]):
                 self.__ListaBidimensional[i][j] = 1
 
 
-    def mostrarTODOxd(self):
-        print(len(self.__ListaBidimensional))
-
-
     def MostrarPorDia(self,dia):
-       # print(hora) la hora no es el problema
-            # este método imprime el mismo elemento de la lista en todo el for
-            #  en vez de imprimir toda la lista
-            # unregtemp = Registro(5.5, 4, 3.2)
-            # self.__ListaBidimensional[dia][hora] = unregtemp
-        print("dia : ")
-        print(dia)
         print("Hora Temperatura Humedad Presion")
-        for i in range(24):
-            # print("{} {} \n".format(i, self.__ListaBidimensional[dia][i]))
-            print("{} {} \n".format(i,self.__ListaBidimensional[dia-1][i]))
+        for hora in range(24):
+             print("{} {} \n".format(hora,self.__ListaBidimensional[dia-1][hora]))
+
+
+    def MayorTemperatura(self):
+        max = self.__ListaBidimensional[0][0].getTemperatura()
+        for i in range(self.__ListaBidimensional):
+            for j in range(self.__ListaBidimensional[i]):
+                if max < self.__ListaBidimensional[i][j].getTemperatura():
+                    max = self.__ListaBidimensional[i][j].getTemperatura()
+        return (max)
+
+    def MayorHumedad(self):
+        max = self.__ListaBidimensional[0][0].getHumedad()
+        for i in range(self.__ListaBidimensional):
+            for j in range(self.__ListaBidimensional[i]):
+                if max < self.__ListaBidimensional[i][j].getHumedad():
+                    max = self.__ListaBidimensional[i][j].getHumedad()
+
+    def MayorPresion(self):
+        max = self.__ListaBidimensional[0][0].getpresion()
+        for i in range(self.__ListaBidimensional):
+            for j in range(self.__ListaBidimensional[i]):
+                if max < self.__ListaBidimensional[i][j].getpresion():
+                    max = self.__ListaBidimensional[i][j].getpresion()
+
+    def MenorTemperatura(self):
+        min = self.__ListaBidimensional[0][0].getTemperatura()
+        for i in range(self.__ListaBidimensional):
+            for j in range(self.__ListaBidimensional[i]):
+                if min > self.__ListaBidimensional[i][j].getTemperatura():
+                    min = self.__ListaBidimensional[i][j].getTemperatura()
+
+    def MenorHumedad(self):
+        min = self.__ListaBidimensional[0][0].getHumedad()
+        for i in range(self.__ListaBidimensional):
+            for j in range(self.__ListaBidimensional[i]):
+                if min > self.__ListaBidimensional[i][j].getHumedad():
+                    min = self.__ListaBidimensional[i][j].getHumedad()
+
+    def MenorPresion(self):
+        min = self.__ListaBidimensional[0][0].getpresion()
+        for i in range(self.__ListaBidimensional):
+            for j in range(self.__ListaBidimensional[i]):
+                if min > self.__ListaBidimensional[i][j].getpresion():
+                    min = self.__ListaBidimensional[i][j].getpresion()
+
+
 
 
     def ingresoArchivo(self):
