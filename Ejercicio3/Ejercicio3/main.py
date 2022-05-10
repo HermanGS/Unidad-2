@@ -26,30 +26,59 @@ from Menu import Menu
 if __name__ == "__main__":
     MM = ManejadorLista()
 
-    dia = int(input("Ingrese un ""día"" para modificar temp hum y pre : "))
-    print(dia)
-    hora = int(input("Ingrese un ""hora"" para modificar temp hum y pre : "))
-    print(hora)
-    print("--------------------------------------------")
-    print("Ingreso de datos del Registro Temporal")
-    temp = float(input("ingrese temperatura : "))
-    hum = int(input("ingrese humedad : "))
-    pre = float(input("ingrese presion : "))
-    Registrotemp = Registro(temp, hum, pre)
+    # TEST temporal
+    # dia0 = int(input("Ingrese un ""día"" para modificar temp hum y pre : "))
+    # # print(dia0)
+    # hora0 = int(input("Ingrese un ""hora"" para modificar temp hum y pre : "))
+    # # print(hora0)
+    # print("--------------------------------------------")
+    # print("Ingreso de datos del Registro Temporal")
+    # temp = float(input("ingrese temperatura : "))
+    # hum = int(input("ingrese humedad : "))
+    # pre = float(input("ingrese presion : "))
+    # Registrotemp = Registro(temp, hum, pre)
+    # print("Registro cargado: ")
+    # print(Registrotemp)
+    # MM.AgregarAlaMatriz(dia0, hora0, Registrotemp)
 
-    print("Registro cargado: ")
-    print(Registrotemp)
-
-    MM.AgregarAlaMatriz(dia, hora, Registrotemp)
+    print("---------------------------------")
+    MM.ingresoArchivo()
+    print("Ingreso de datos del Archivo : COMPLETADO ")
+    print("---------------------------------")
     # MM.PruebaCarga()
-    # MM.CambiarTodoaEntero()
-    print("--------------------------------")
-    print("Matriz por día : {}".format(dia))
-    MM.MostrarPorDia(dia)
-    # MM.mostrarTODOxd()
 
-    print("1  2 o 3 ")
-    op = input("Elija una Opcion : ")
-    menuOP = Menu()
-    menuOP.elegirop(op)
+    # Menu:
+    # #op1
+    # print("Del mes : \n La Mayor Temperatura es {}, La Menor Temperatura es {},\n La Mayor Humedad es {}, La Menor Humedad es {},\n La Mayor Presion es {}, La Menor Presion es {}.\n ".format(MM.MayorTemperatura(),MM.MenorTemperatura(),MM.MayorHumedad(),MM.MenorHumedad(),MM.MayorPresion(),MM.MenorPresion() ))
+    # #op2
+    # MM.PromedioMensualPorHora()
+    # #op3
+    # dia = int(input("Ingrese el dia, para ver todos los Valores de las Variales Metereologicas por HORA : "))
+    # print("Matriz por día : {}".format(dia))
+    # print("--------------------------------")
+    # MM.MostrarPorDia(dia)
 
+    op = -1
+    while op != 4:
+        print("1  2  3 o 4 para salir ")
+        op = int(input("Elija una Opcion : "))
+        print("op : ")
+        print(op)
+        if (op==1)or(op==2)or(op==3)or(op==4):
+            if (op==1):
+                print("Del mes : \n La Mayor Temperatura es {}, La Menor Temperatura es {},\n La Mayor Humedad es {}, La Menor Humedad es {},\n La Mayor Presion es {}, La Menor Presion es {}.\n ".format(MM.MayorTemperatura(),MM.MenorTemperatura(),MM.MayorHumedad(),MM.MenorHumedad(),MM.MayorPresion(),MM.MenorPresion() ))
+            if (op==2):
+                MM.PromedioMensualPorHora()
+            if (op==3):
+                dia = int(input("Ingrese el dia, para ver todos los Valores de las Variales Metereologicas por HORA : "))
+                print("Matriz por día : {}".format(dia))
+                print("--------------------------------")
+                MM.MostrarPorDia(dia)
+            if (op==4):
+                print("<<<----------------< Fin Programa >---------------->>>")
+        else:
+            print("Opcion Equivocada")
+
+        # el Módulo Menu no puede importar bien el módulo ManejadorLista, por esto mismo hago el menu en el main
+        # menuOP = Menu()
+        # menuOP.elegirop(op, MM)
