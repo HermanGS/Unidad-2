@@ -1,17 +1,20 @@
+from ManejadorInfracciones import ManejadorInfracciones
+from ManejadorInfractores import ManejadorInfractores
+
 
 
 class menu:
 
 
-    def opcion1(self):
+    def opcion1(self,MInfractores,MInfracciones):
+        
+    def opcion2(self,MInfractores,MInfracciones):
         pass
-    def opcion2(self):
+    def opcion3(self,MInfractores,MInfracciones):
         pass
-    def opcion3(self):
+    def opcion4(self,MInfractores,MInfracciones):
         pass
-    def opcion4(self):
-        pass
-    def opcion5(self):
+    def opcion5(self,MInfractores,MInfracciones):
         pass
 
     def MostrarOpciones(self):

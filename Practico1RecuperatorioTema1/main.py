@@ -28,6 +28,6 @@ if __name__ == '__main__':
     MInfractores.MostrarLista()
     print("--------------------------------------------------------------")
 
-    MInfractores.Formato(MInfracciones)
+    MInfractores.Formato2(21111222,MInfracciones)
     print("--------------------------------------------------------------")
     

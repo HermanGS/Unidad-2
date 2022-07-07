@@ -20,3 +20,19 @@ class infracciones:
 
     def getDni(self):
         return self.__dni
+
+    def getPatente(self):
+        return self.__patente
+    
+    def getDescripcion(self):
+        return self.__descripcion
+
+    def getImporte(self):
+        return self.__importe
+
+    def __eq__(self, other):
+        val = False
+        if type(self) == type(other):
+            if self.getDni() == other.getDni() and self.getPatente() == other.getPatente() and self.getDescripcion() == other.getDescripcion():
+                val = True
+        return val

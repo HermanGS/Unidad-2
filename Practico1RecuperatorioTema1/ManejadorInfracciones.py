@@ -36,3 +36,4 @@ class ManejadorInfracciones:
 
     def RetornaArregloLista(self):
         return self.__ArregloInfracciones
+

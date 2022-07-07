@@ -3,6 +3,7 @@
 
 from csv import reader
 import csv
+from infracciones import infracciones
 
 from infractor import infractor
 
@@ -52,13 +53,42 @@ class ManejadorInfractores:
                 if ManejadorInfracciones.RetornaArregloLista()[j].getDni() == self.__listaInfractores[i].getDni():
                     self.__listaInfractores[i].setPuntos()
 
-    def Formato(self,ManejadorInfracciones):
-        print("{:^6}Patente {:^10}Tipo de vehículo {:^5}Marca {:^9}Descripción {:^6}Importe")
-        
-        for i in range(len(self.__listaInfractores)):
+
+
+    def Formato2(self,dni,ManejadorInfracciones):
+        cont=0
+        i=0
+        while i<len(self.__listaInfractores) and self.__listaInfractores[i].getDni() != dni:
+            i=i+1
+        if i<len(self.__listaInfractores):
+            SubTotal = 0
+            Descuento = 0
+            Total = 0
+            print("\n")
             print("Infractor:")
             print(self.__listaInfractores[i].mostrardatos())
+            print("\n")
             print("Infracciones:")
             for j in range (len(ManejadorInfracciones.RetornaArregloLista())):
                 if self.__listaInfractores[i].getDni() == ManejadorInfracciones.RetornaArregloLista()[j].getDni():
                     print(ManejadorInfracciones.RetornaArregloLista()[j].mostrardatos())
+                    SubTotal = SubTotal + ManejadorInfracciones.RetornaArregloLista()[j].getImporte()
+
+
+            for k in range(len(ManejadorInfracciones.RetornaArregloLista())):
+                if ManejadorInfracciones.RetornaArregloLista()[j] == ManejadorInfracciones.RetornaArregloLista()[k]:
+                    cont = cont + 1
+                    print("contador = ",cont)
+            Descuento = 0
+            if cont<=1:
+                Descuento = SubTotal * 0.5
+            
+            
+
+            Total = SubTotal - Descuento
+            print("                             SubTotal : {}".format(SubTotal))
+            print("                             Total : {}".format(Total))
+            
+            print("\n")
+
+        
